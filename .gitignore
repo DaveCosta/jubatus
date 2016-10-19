@@ -3,7 +3,7 @@ build/
 target/
 out/
 .DS_Store
-.project
+.project/≈y≈
 .classpath
 .gradle/
 .settings
