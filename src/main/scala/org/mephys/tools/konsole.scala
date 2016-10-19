@@ -28,37 +28,24 @@ class Konsole(promt: String) {
     status = EXIT
   }
 
+  def getCmds : Array[String] = cmd.split(' ')
+
   def get(): String = {
 
     cmd.clear()
     print(promt + " ")
     status = RUNNING
-    var flag = true
-    while (flag) {
 
-      var c: Char=0
+    val line = scala.io.StdIn.readLine();
 
-      try {
-        c = stdin.readChar()
-      } catch {
-        case ex: EOFException  => c = 1
-        case ex:StringIndexOutOfBoundsException => c = 0
-      }
-
-      println(c.toInt)
-
-      c match {
-        case 0  => { flag = false}
-        case 1 =>  {status = EXIT; flag = false}
-        case '\u0004'=> {
-          status = EXIT; flag = false
-        }
-        case '\n' | '\r' => flag = false
+    if(line==null) {
+      status = EXIT
+      return ""
+    }   else line foreach(
+        c =>  c match {
+        case 0  => ;
         case _ =>  cmd.append(c)
-      }
-
-    }
-
+      })
     cmd.toString
   }
 
