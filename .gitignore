@@ -3,10 +3,11 @@ build/
 target/
 out/
 .DS_Store
-.project/≈y≈
+.project/
 .classpath
 .gradle/
 .settings
-src/.DS_Store
+.DS_Store
 *.iml
 *~
+*.class
